@@ -25,13 +25,13 @@
         Return typeC
     End Function
 
-    Public Shared Sub instancierPaquetCarteNormale(ByRef cartes As Carte())
-        ReDim cartes(19)
+    Public Shared Sub instancierPaquetCarteNormale(ByRef cartes As Carte(), nbType As Integer, nbCartesParType As Integer)
+        ReDim cartes(nbType * nbCartesParType - 1)
         Dim images As New ArrayList()
-        instancierSetImage(images, "Card1.png", "Card2.png", "Card3.png", "Card4.png", "Card5.png")
+        instancierSetImage(images, "Card1.png", "Card2.png", "Card3.png", "Card4.png", "Card5.png", "Card6.png")
         Dim cpt As Integer = 0
-        For i As Integer = 0 To 4
-            For j As Integer = 0 To 3
+        For i As Integer = 0 To nbType - 1
+            For j As Integer = 0 To nbCartesParType - 1
                 cartes(cpt) = New Carte()
                 cartes(cpt).instancierCarte(CType(i, TypeCarte), images(i))
                 cpt += 1

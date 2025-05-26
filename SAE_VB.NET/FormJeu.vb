@@ -10,6 +10,10 @@ Public Class FormJeu
     Private tempsRestant As Integer
     Private score As Integer = 0
     Private tempsUtilise As Integer = -1
+    Private Const NB_CARTES_PAR_TYPES_DEFAULT As Integer = 4
+    Private Const NB_TYPE_DEFAULT As Integer = 5
+    Private nbTypeCarte As Integer = NB_TYPE_DEFAULT
+    Private nbCartesParType As Integer = NB_CARTES_PAR_TYPES_DEFAULT
 
     Private Sub FormJeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximizeBox = False
@@ -38,9 +42,9 @@ Public Class FormJeu
         Dim rnd As New Random()
         Dim j As Integer
         Dim nouvelleLocation As Point
-        Const NOMBRE_CARTES As Integer = 20
-        For i As Integer = 0 To NOMBRE_CARTES - 1
-            j = rnd.Next(0, NOMBRE_CARTES)
+        Dim nbCartes As Integer = nbTypeCarte * nbCartesParType
+        For i As Integer = 0 To nbCartes - 1
+            j = rnd.Next(0, nbCartes)
             nouvelleLocation = tableauLabels(j).Location
             If Not CarteDejaPresente(nouvelleLocation, j) Then
                 tableauLabels(j).Location = tableauLabels(i).Location
@@ -59,14 +63,14 @@ Public Class FormJeu
         Return False
     End Function
     Private Sub InstancierJeuNormal()
-        Carte.instancierPaquetCarteNormale(Cartes)
+        Carte.instancierPaquetCarteNormale(Cartes, nbTypeCarte, nbCartesParType)
         ReDim CartesTrouve(4)
         ReDim tableauLabels(19)
         Panel1.AutoSize = True
         Panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink
         Dim cpt As Integer = 0
-        For i As Integer = 0 To 4
-            For j As Integer = 0 To 3
+        For i As Integer = 0 To nbTypeCarte - 1
+            For j As Integer = 0 To nbCartesParType - 1
                 tableauLabels(cpt) = New LabelCarte(Cartes(cpt), i, j)
                 AddHandler tableauLabels(cpt).Click, AddressOf LabelCarte_Click
                 Panel1.Controls.Add(tableauLabels(cpt))
@@ -81,7 +85,7 @@ Public Class FormJeu
         CartesTrouve(t) += 1
         sender.Enabled = False
         If t <> DernierType And DernierType <> -1 Then
-            If CartesTrouve(DernierType) <> 4 Then
+            If CartesTrouve(DernierType) <> nbCartesParType Then
                 CartesTrouve(t) = 0
                 CartesTrouve(DernierType) = 0
                 System.Threading.Thread.Sleep(1000)
@@ -91,10 +95,10 @@ Public Class FormJeu
                 Return
             End If
         End If
-        If CartesTrouve(t) = 4 Then
+        If CartesTrouve(t) = nbCartesParType Then
             BloquerCartes(t)
             score += 1
-            If score = 5 Then
+            If score = nbTypeCarte Then
                 Timer1.Stop()
                 MsgBox("Bravo ! Vous avez gagné !", vbOKOnly + vbInformation, "Victoire")
                 Me.Close()
