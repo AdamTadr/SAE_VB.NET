@@ -129,6 +129,8 @@ Public Class FormJeu
     End Sub
 
     Private Sub LabelCarte_Click(sender As Object, e As EventArgs)
+        Dim sonFlip As New System.Media.SoundPlayer(Application.StartupPath & "\sounds\Flipcard.wav")
+        sonFlip.Play()
         Dim t As Carte.TypeCarte = sender.getCarteType()
         CartesTrouve(t) += 1
         sender.Enabled = False
@@ -164,6 +166,8 @@ Public Class FormJeu
     End Sub
 
     Private Sub BloquerCartes(t As Carte.TypeCarte)
+        Dim sonCorrect As New System.Media.SoundPlayer(Application.StartupPath & "\sounds\good.wav")
+        sonCorrect.Play()
         For Each label In tableauLabels
             If label.getCarteType() = t Then
                 label.Enabled = False
