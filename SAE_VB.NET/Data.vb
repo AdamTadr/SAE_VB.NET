@@ -10,6 +10,12 @@ Module Data
 
     Private Statistiques As New Dictionary(Of String, Stats)
 
+    Public Sub SupprimerStats()
+        Statistiques = New Dictionary(Of String, Stats)
+        File.Delete("Statistiques.bin")
+        Score.Refresh()
+    End Sub
+
     Public Function listeStats() As List(Of Tuple(Of String, Stats))
         Dim personnes As New List(Of Tuple(Of String, Stats))
         Dim keyCourante As String

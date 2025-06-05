@@ -37,6 +37,7 @@ Partial Class Score
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ButtonStats = New System.Windows.Forms.Button()
         Me.ButtonQuit = New System.Windows.Forms.Button()
+        Me.ButtonSuppr = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'ListBoxNom
@@ -184,12 +185,22 @@ Partial Class Score
         Me.ButtonQuit.Text = "❌"
         Me.ButtonQuit.UseVisualStyleBackColor = True
         '
+        'ButtonSuppr
+        '
+        Me.ButtonSuppr.Location = New System.Drawing.Point(601, 21)
+        Me.ButtonSuppr.Name = "ButtonSuppr"
+        Me.ButtonSuppr.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonSuppr.TabIndex = 15
+        Me.ButtonSuppr.Text = "Supprimer Stats"
+        Me.ButtonSuppr.UseVisualStyleBackColor = True
+        '
         'Score
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(882, 450)
+        Me.Controls.Add(Me.ButtonSuppr)
         Me.Controls.Add(Me.ButtonQuit)
         Me.Controls.Add(Me.ButtonStats)
         Me.Controls.Add(Me.Label1)
@@ -227,4 +238,5 @@ Partial Class Score
     Friend WithEvents Label1 As Label
     Friend WithEvents ButtonStats As Button
     Friend WithEvents ButtonQuit As Button
+    Friend WithEvents ButtonSuppr As Button
 End Class

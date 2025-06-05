@@ -96,7 +96,7 @@ Partial Class Form1
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Agency FB", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(342, 98)
+        Me.Label2.Location = New System.Drawing.Point(351, 99)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(86, 31)
         Me.Label2.TabIndex = 6

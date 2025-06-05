@@ -20,8 +20,15 @@ Public Class FormJeu
     Private Const NB_TYPE_DEFAULT As Integer = 5
     Private nbTypeCarte As Integer = NB_TYPE_DEFAULT
     Private nbCartesParType As Integer = NB_CARTES_PAR_TYPES_DEFAULT
-    Public Shared themeSelectionne As String = "Oiseaux"
+    Private Shared themeSelectionne As String = "Oiseaux"
 
+    Public Function getTheme() As String
+        Return themeSelectionne
+    End Function
+
+    Public Sub setTheme(theme As String)
+        themeSelectionne = theme
+    End Sub
     Public Sub modifierTempsImpartis(temps As Integer)
         If temps > tempsMin Or temps < tempsMax Then
             tempsRestant = temps + 1
@@ -36,7 +43,6 @@ Public Class FormJeu
             LabelTpsRestant.Visible = False
             LabelTps.Visible = False
             tempsRestant = 1000000
-            tempsUtilise = tempsMax + 1
             MsgBox("Temps Desactivé")
         Else
             tempsInf = False
@@ -168,13 +174,6 @@ Public Class FormJeu
         DernierType = t
     End Sub
 
-    Private Sub FormClosing(sender As Object, e As EventArgs) Handles MyBase.FormClosing
-        Timer1.Stop()
-        If Not tempsInf Then SauvegarderStatistiques(Label4.Text, score, tempsUtilise)
-        If tempsInf Then SauvegarderStatistiques(Label4.Text, score, tempsUtilise)
-        Form1.ChargerNom()
-        LireSave()
-    End Sub
 
     Private Sub BloquerCartes(t As Carte.TypeCarte)
         Dim sonCorrect As New System.Media.SoundPlayer(Application.StartupPath & "\sounds\good.wav")
@@ -197,6 +196,10 @@ Public Class FormJeu
         Next
     End Sub
     Private Sub FormJeu_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Form1.ChargerNom()
+        Timer1.Stop()
+        SauvegarderStatistiques(Label4.Text, score, tempsUtilise + 1)
+        LireSave()
         Form1.Show()
     End Sub
 

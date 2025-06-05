@@ -25,9 +25,9 @@ Public Class optionForm
         If TxtTemps.Text <> "" Then FormJeu.modifierNbCartesParType(CInt(TxtNbParType.Text))
         If TxtTemps.Text <> "" Then FormJeu.modifierTempsImpartis(CInt(TxtTemps.Text))
         If CbTheme.SelectedItem IsNot Nothing Then
-            FormJeu.themeSelectionne = CbTheme.SelectedItem.ToString()
+            FormJeu.setTheme(CbTheme.SelectedItem.ToString())
         End If
-        MessageBox.Show("Le thème sélectionné est : " & FormJeu.themeSelectionne)
+        MessageBox.Show("Le thème sélectionné est : " & FormJeu.getTheme())
         Me.Close()
 
     End Sub

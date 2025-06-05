@@ -9,7 +9,7 @@
         Carte = c
         Me.Location = New Point(x * 100 + 10, y * 131 + 50)
         Me.Size = Carte.getImage().Size
-        Me.BackgroundImage = Image.FromFile(Application.StartupPath & "\images\" & FormJeu.themeSelectionne & "\BackCard.png")
+        Me.BackgroundImage = Image.FromFile(Application.StartupPath & "\images\" & FormJeu.getTheme() & "\BackCard.png")
     End Sub
 
     Public Sub RendreCarteGrise()

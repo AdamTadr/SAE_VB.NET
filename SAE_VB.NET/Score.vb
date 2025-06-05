@@ -52,8 +52,8 @@
             ListBoxTpsC.SelectedIndex = index
             ListBoxTemps.SelectedIndex = index
             ListBoxNbPartie.SelectedIndex = index
+            ComboBoxNom.Text = ListBoxNom.Items(index)
         End If
-        ComboBoxNom.Text = ListBoxNom.Items(index)
     End Sub
 
     Public Sub clearListBox()
@@ -90,4 +90,15 @@
     Private Sub ButtonQuit_Click(sender As Object, e As EventArgs) Handles ButtonQuit.Click
         Me.Close()
     End Sub
+
+    Private Sub ButtonSuppr_Click(sender As Object, e As EventArgs) Handles ButtonSuppr.Click
+        Dim reponse = MsgBox("Voulez vous supprimer les statistiques ?",
+               MsgBoxStyle.YesNo + MsgBoxStyle.Question, "Suppression des statistiques")
+        If reponse = vbYes Then
+            Data.SupprimerStats()
+            MsgBox("Donnée supprimé")
+        End If
+        Me.Close()
+    End Sub
+
 End Class
