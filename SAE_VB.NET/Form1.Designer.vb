@@ -30,6 +30,7 @@ Partial Class Form1
         Me.BtnScore = New System.Windows.Forms.Button()
         Me.BtnOpt = New System.Windows.Forms.Button()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'CbNomJ
@@ -56,7 +57,7 @@ Partial Class Form1
         Me.BtnPartie.Name = "BtnPartie"
         Me.BtnPartie.Size = New System.Drawing.Size(121, 23)
         Me.BtnPartie.TabIndex = 2
-        Me.BtnPartie.Text = "Nouvelle Partie"
+        Me.BtnPartie.Text = "Nouvelle Partie 🕹️"
         Me.BtnPartie.UseVisualStyleBackColor = True
         '
         'BtnQuit
@@ -74,7 +75,7 @@ Partial Class Form1
         Me.BtnScore.Name = "BtnScore"
         Me.BtnScore.Size = New System.Drawing.Size(121, 23)
         Me.BtnScore.TabIndex = 4
-        Me.BtnScore.Text = "Score"
+        Me.BtnScore.Text = "Score 📊"
         Me.BtnScore.UseVisualStyleBackColor = True
         '
         'BtnOpt
@@ -83,7 +84,7 @@ Partial Class Form1
         Me.BtnOpt.Name = "BtnOpt"
         Me.BtnOpt.Size = New System.Drawing.Size(75, 23)
         Me.BtnOpt.TabIndex = 5
-        Me.BtnOpt.Text = "Options"
+        Me.BtnOpt.Text = "Options 🛠️"
         Me.BtnOpt.UseVisualStyleBackColor = True
         '
         'ContextMenuStrip1
@@ -91,11 +92,23 @@ Partial Class Form1
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.Size = New System.Drawing.Size(61, 4)
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Agency FB", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(342, 98)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(86, 31)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "MEMORY."
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.SAE_VB.NET.My.Resources.Resources.ExK_qcgVIAIOLwR
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.BtnOpt)
         Me.Controls.Add(Me.BtnScore)
         Me.Controls.Add(Me.BtnQuit)
@@ -116,4 +129,5 @@ Partial Class Form1
     Friend WithEvents BtnScore As Button
     Friend WithEvents BtnOpt As Button
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
+    Friend WithEvents Label2 As Label
 End Class

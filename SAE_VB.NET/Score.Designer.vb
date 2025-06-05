@@ -90,15 +90,19 @@ Partial Class Score
         'LabelNom
         '
         Me.LabelNom.AutoSize = True
+        Me.LabelNom.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.LabelNom.ForeColor = System.Drawing.Color.DarkOrange
         Me.LabelNom.Location = New System.Drawing.Point(49, 93)
         Me.LabelNom.Name = "LabelNom"
-        Me.LabelNom.Size = New System.Drawing.Size(29, 13)
+        Me.LabelNom.Size = New System.Drawing.Size(32, 13)
         Me.LabelNom.TabIndex = 6
-        Me.LabelNom.Text = "Nom"
+        Me.LabelNom.Text = "NOM"
         '
         'LabelScore
         '
         Me.LabelScore.AutoSize = True
+        Me.LabelScore.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.LabelScore.ForeColor = System.Drawing.Color.DarkOrange
         Me.LabelScore.Location = New System.Drawing.Point(200, 93)
         Me.LabelScore.Name = "LabelScore"
         Me.LabelScore.Size = New System.Drawing.Size(81, 13)
@@ -108,6 +112,8 @@ Partial Class Score
         'LabelTpsCumul
         '
         Me.LabelTpsCumul.AutoSize = True
+        Me.LabelTpsCumul.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.LabelTpsCumul.ForeColor = System.Drawing.Color.DarkOrange
         Me.LabelTpsCumul.Location = New System.Drawing.Point(660, 93)
         Me.LabelTpsCumul.Name = "LabelTpsCumul"
         Me.LabelTpsCumul.Size = New System.Drawing.Size(76, 13)
@@ -117,6 +123,8 @@ Partial Class Score
         'LabelTemps
         '
         Me.LabelTemps.AutoSize = True
+        Me.LabelTemps.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.LabelTemps.ForeColor = System.Drawing.Color.DarkOrange
         Me.LabelTemps.Location = New System.Drawing.Point(356, 93)
         Me.LabelTemps.Name = "LabelTemps"
         Me.LabelTemps.Size = New System.Drawing.Size(82, 13)
@@ -126,6 +134,8 @@ Partial Class Score
         'LabelNbPJ
         '
         Me.LabelNbPJ.AutoSize = True
+        Me.LabelNbPJ.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.LabelNbPJ.ForeColor = System.Drawing.Color.DarkOrange
         Me.LabelNbPJ.Location = New System.Drawing.Point(507, 93)
         Me.LabelNbPJ.Name = "LabelNbPJ"
         Me.LabelNbPJ.Size = New System.Drawing.Size(111, 13)
@@ -134,6 +144,7 @@ Partial Class Score
         '
         'ButtonOrdre
         '
+        Me.ButtonOrdre.ForeColor = System.Drawing.Color.DarkOrange
         Me.ButtonOrdre.Location = New System.Drawing.Point(622, 279)
         Me.ButtonOrdre.Name = "ButtonOrdre"
         Me.ButtonOrdre.Size = New System.Drawing.Size(187, 43)
@@ -144,6 +155,8 @@ Partial Class Score
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.Label1.ForeColor = System.Drawing.Color.DarkOrange
         Me.Label1.Location = New System.Drawing.Point(225, 282)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(98, 13)
@@ -152,6 +165,7 @@ Partial Class Score
         '
         'ButtonStats
         '
+        Me.ButtonStats.ForeColor = System.Drawing.Color.DarkOrange
         Me.ButtonStats.Location = New System.Drawing.Point(622, 340)
         Me.ButtonStats.Name = "ButtonStats"
         Me.ButtonStats.Size = New System.Drawing.Size(187, 43)
@@ -161,17 +175,20 @@ Partial Class Score
         '
         'ButtonQuit
         '
+        Me.ButtonQuit.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ButtonQuit.ForeColor = System.Drawing.Color.SandyBrown
         Me.ButtonQuit.Location = New System.Drawing.Point(755, 21)
         Me.ButtonQuit.Name = "ButtonQuit"
         Me.ButtonQuit.Size = New System.Drawing.Size(75, 23)
         Me.ButtonQuit.TabIndex = 14
-        Me.ButtonQuit.Text = "Quitter"
+        Me.ButtonQuit.Text = "❌"
         Me.ButtonQuit.UseVisualStyleBackColor = True
         '
         'Score
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.ClientSize = New System.Drawing.Size(882, 450)
         Me.Controls.Add(Me.ButtonQuit)
         Me.Controls.Add(Me.ButtonStats)

@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="images\Menus\ExK_qcgVIAIOLwR.png" />
     <Content Include="images\Oiseaux\BackCard.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -202,6 +203,7 @@
     <Content Include="images\Planete\Fond.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\ExK_qcgVIAIOLwR.png" />
     <Content Include="sounds\Flipcard.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

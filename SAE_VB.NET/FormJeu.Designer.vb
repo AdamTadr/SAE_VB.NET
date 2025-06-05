@@ -43,7 +43,7 @@ Partial Class FormJeu
         'LabelTpsRestant
         '
         Me.LabelTpsRestant.AutoSize = True
-        Me.LabelTpsRestant.BackColor = System.Drawing.Color.Transparent
+        Me.LabelTpsRestant.BackColor = System.Drawing.Color.White
         Me.LabelTpsRestant.Location = New System.Drawing.Point(276, 14)
         Me.LabelTpsRestant.Name = "LabelTpsRestant"
         Me.LabelTpsRestant.Size = New System.Drawing.Size(39, 13)
@@ -53,7 +53,7 @@ Partial Class FormJeu
         'LabelTps
         '
         Me.LabelTps.AutoSize = True
-        Me.LabelTps.BackColor = System.Drawing.Color.Transparent
+        Me.LabelTps.BackColor = System.Drawing.Color.White
         Me.LabelTps.Location = New System.Drawing.Point(187, 14)
         Me.LabelTps.Name = "LabelTps"
         Me.LabelTps.Size = New System.Drawing.Size(83, 13)
@@ -63,7 +63,7 @@ Partial Class FormJeu
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.BackColor = System.Drawing.Color.White
         Me.Label3.Location = New System.Drawing.Point(12, 14)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(45, 13)
@@ -73,7 +73,7 @@ Partial Class FormJeu
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.BackColor = System.Drawing.Color.White
         Me.Label4.Location = New System.Drawing.Point(63, 14)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(39, 13)
@@ -89,7 +89,7 @@ Partial Class FormJeu
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 5
-        Me.Button1.Text = "Abandon"
+        Me.Button1.Text = "❌"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'BtnPause
@@ -98,7 +98,7 @@ Partial Class FormJeu
         Me.BtnPause.Name = "BtnPause"
         Me.BtnPause.Size = New System.Drawing.Size(75, 23)
         Me.BtnPause.TabIndex = 6
-        Me.BtnPause.Text = "Pause"
+        Me.BtnPause.Text = "►"
         Me.BtnPause.UseVisualStyleBackColor = True
         '
         'FormJeu

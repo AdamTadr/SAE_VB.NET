@@ -44,20 +44,24 @@ Partial Class optionForm
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.IndianRed
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label1.Location = New System.Drawing.Point(110, 183)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(81, 13)
+        Me.Label1.Size = New System.Drawing.Size(86, 13)
         Me.Label1.TabIndex = 1
-        Me.Label1.Text = "3<=NbType<=6"
+        Me.Label1.Text = "3<=NBTYPE<=6"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.IndianRed
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.Label2.Location = New System.Drawing.Point(117, 229)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(61, 13)
+        Me.Label2.Size = New System.Drawing.Size(65, 13)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "NbParType"
+        Me.Label2.Text = "NBparTYPE"
         '
         'TxtNbParType
         '
@@ -68,12 +72,14 @@ Partial Class optionForm
         '
         'ButtonValider
         '
+        Me.ButtonValider.BackColor = System.Drawing.Color.IndianRed
+        Me.ButtonValider.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.ButtonValider.Location = New System.Drawing.Point(335, 301)
         Me.ButtonValider.Name = "ButtonValider"
         Me.ButtonValider.Size = New System.Drawing.Size(75, 23)
         Me.ButtonValider.TabIndex = 4
-        Me.ButtonValider.Text = "Valider"
-        Me.ButtonValider.UseVisualStyleBackColor = True
+        Me.ButtonValider.Text = "✔"
+        Me.ButtonValider.UseVisualStyleBackColor = False
         '
         'TxtTemps
         '
@@ -85,20 +91,25 @@ Partial Class optionForm
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.IndianRed
+        Me.Label3.ForeColor = System.Drawing.SystemColors.Control
         Me.Label3.Location = New System.Drawing.Point(110, 144)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(68, 13)
+        Me.Label3.Size = New System.Drawing.Size(88, 13)
         Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Temps requit"
+        Me.Label3.Text = "TEMPS REQUIT"
         '
         'BtnTemps
         '
+        Me.BtnTemps.BackColor = System.Drawing.Color.IndianRed
+        Me.BtnTemps.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnTemps.ForeColor = System.Drawing.Color.White
         Me.BtnTemps.Location = New System.Drawing.Point(335, 144)
         Me.BtnTemps.Name = "BtnTemps"
         Me.BtnTemps.Size = New System.Drawing.Size(126, 23)
         Me.BtnTemps.TabIndex = 7
-        Me.BtnTemps.Text = "Desactiver Temps"
-        Me.BtnTemps.UseVisualStyleBackColor = True
+        Me.BtnTemps.Text = "DESACTIVER TEMPS"
+        Me.BtnTemps.UseVisualStyleBackColor = False
         '
         'CbTheme
         '
@@ -114,16 +125,19 @@ Partial Class optionForm
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(587, 144)
+        Me.Label4.BackColor = System.Drawing.Color.IndianRed
+        Me.Label4.ForeColor = System.Drawing.Color.White
+        Me.Label4.Location = New System.Drawing.Point(618, 144)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(119, 13)
+        Me.Label4.Size = New System.Drawing.Size(45, 13)
         Me.Label4.TabIndex = 9
-        Me.Label4.Text = "Choisissez votre Thème"
+        Me.Label4.Text = "THEME"
         '
         'optionForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.PeachPuff
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.CbTheme)
