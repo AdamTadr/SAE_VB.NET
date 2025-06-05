@@ -43,7 +43,7 @@ Public Class Carte
 
     Private Shared Sub instancierSetImage(images As ArrayList, ref1 As String, ref2 As String, ref3 As String, Optional ref4 As String = Nothing,
                                    Optional ref5 As String = Nothing, Optional ref6 As String = Nothing)
-        Dim basePath As String = Path.Combine(Application.StartupPath, "images") & "\"
+        Dim basePath As String = Application.StartupPath & "\images\" & FormJeu.themeSelectionne & "\"
         images.Add(Image.FromFile(basePath & ref1))
         images.Add(Image.FromFile(basePath & ref2))
         images.Add(Image.FromFile(basePath & ref3))

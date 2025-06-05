@@ -20,6 +20,7 @@ Public Class FormJeu
     Private Const NB_TYPE_DEFAULT As Integer = 5
     Private nbTypeCarte As Integer = NB_TYPE_DEFAULT
     Private nbCartesParType As Integer = NB_CARTES_PAR_TYPES_DEFAULT
+    Public Shared themeSelectionne As String = "Oiseaux"
 
     Public Sub modifierTempsImpartis(temps As Integer)
         If temps > tempsMin Or temps < tempsMax Then
@@ -73,6 +74,16 @@ Public Class FormJeu
         Timer1.Start()
         InstancierJeuNormal()
         MelangerPositionLabelC()
+        Dim cheminFond As String = Application.StartupPath & "\images\" & FormJeu.themeSelectionne & "\Fond.png"
+
+
+        If IO.File.Exists(cheminFond) Then
+            Me.BackgroundImage = Image.FromFile(cheminFond)
+            Me.BackgroundImageLayout = ImageLayout.Stretch
+            Panel1.BackgroundImage = Image.FromFile(Application.StartupPath & "\images\" & FormJeu.themeSelectionne & "\Fond.png")
+            Panel1.BackgroundImageLayout = ImageLayout.Stretch
+        End If
+
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
@@ -179,7 +190,7 @@ Public Class FormJeu
     Private Sub RetournerCartes(t As Carte.TypeCarte)
         For Each label In tableauLabels
             If label.getCarteType() = t Then
-                label.BackgroundImage = Image.FromFile(Application.StartupPath & "\images\BackCard.png")
+                label.BackgroundImage = Image.FromFile(Application.StartupPath & "\images\" & FormJeu.themeSelectionne & "\BackCard.png")
                 label.Refresh()
                 label.Enabled = True
             End If
@@ -212,7 +223,4 @@ Public Class FormJeu
         End If
     End Sub
 
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
-
-    End Sub
 End Class

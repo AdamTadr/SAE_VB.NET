@@ -83,7 +83,7 @@ Partial Class Form1
         Me.BtnOpt.Name = "BtnOpt"
         Me.BtnOpt.Size = New System.Drawing.Size(75, 23)
         Me.BtnOpt.TabIndex = 5
-        Me.BtnOpt.Text = "Option"
+        Me.BtnOpt.Text = "Options"
         Me.BtnOpt.UseVisualStyleBackColor = True
         '
         'ContextMenuStrip1

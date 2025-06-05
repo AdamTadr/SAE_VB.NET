@@ -3,8 +3,11 @@
 Public Class optionForm
 
     Private tempsInf As Boolean = False
+    Public Shared themeSelectionne As String = "Oiseaux"
     Private Sub optionForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        CbTheme.Items.Clear()
+        CbTheme.Items.AddRange({"Oiseaux", "Planete"})
+        CbTheme.SelectedIndex = 0
     End Sub
 
     Private Sub Closing(sender As Object, e As EventArgs) Handles MyBase.Closing
@@ -21,7 +24,12 @@ Public Class optionForm
         If TxtTemps.Text <> "" Then FormJeu.modifierNbTypeCarte(CInt(TxtNbType.Text))
         If TxtTemps.Text <> "" Then FormJeu.modifierNbCartesParType(CInt(TxtNbParType.Text))
         If TxtTemps.Text <> "" Then FormJeu.modifierTempsImpartis(CInt(TxtTemps.Text))
+        If CbTheme.SelectedItem IsNot Nothing Then
+            FormJeu.themeSelectionne = CbTheme.SelectedItem.ToString()
+        End If
+        MessageBox.Show("Le thème sélectionné est : " & FormJeu.themeSelectionne)
         Me.Close()
+
     End Sub
 
     Private Sub BtnTemps_Click(sender As Object, e As EventArgs) Handles BtnTemps.Click
@@ -35,4 +43,6 @@ Public Class optionForm
             FormJeu.arreterTempsImpartis(tempsInf)
         End If
     End Sub
+
+
 End Class
