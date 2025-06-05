@@ -41,12 +41,13 @@
 
     Private Shared Sub instancierSetImage(images As ArrayList, ref1 As String, ref2 As String, ref3 As String, Optional ref4 As String = Nothing,
                                    Optional ref5 As String = Nothing, Optional ref6 As String = Nothing)
-        images.Add(Image.FromFile(ref1))
-        images.Add(Image.FromFile(ref2))
-        images.Add(Image.FromFile(ref3))
-        If ref4 IsNot Nothing Then images.Add(Image.FromFile(ref4))
-        If ref5 IsNot Nothing Then images.Add(Image.FromFile(ref5))
-        If ref6 IsNot Nothing Then images.Add(Image.FromFile(ref6))
+        Dim basePath As String = Application.StartupPath & "\images\"
+        images.Add(Image.FromFile(basePath & ref1))
+        images.Add(Image.FromFile(basePath & ref2))
+        images.Add(Image.FromFile(basePath & ref3))
+        If ref4 IsNot Nothing Then images.Add(Image.FromFile(basePath & ref4))
+        If ref5 IsNot Nothing Then images.Add(Image.FromFile(basePath & ref5))
+        If ref6 IsNot Nothing Then images.Add(Image.FromFile(basePath & ref6))
     End Sub
 End Class
 

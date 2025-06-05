@@ -175,7 +175,7 @@ Public Class FormJeu
     Private Sub RetournerCartes(t As Carte.TypeCarte)
         For Each label In tableauLabels
             If label.getCarteType() = t Then
-                label.BackgroundImage = Image.FromFile("BackCard.png")
+                label.BackgroundImage = Image.FromFile(Application.StartupPath & "\images\BackCard.png")
                 label.Refresh()
                 label.Enabled = True
             End If
@@ -208,5 +208,7 @@ Public Class FormJeu
         End If
     End Sub
 
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
 
+    End Sub
 End Class

@@ -9,7 +9,7 @@
         Carte = c
         Me.Location = New Point(x * 100 + 10, y * 131 + 50)
         Me.Size = Carte.getImage().Size
-        Me.BackgroundImage = Image.FromFile("BackCard.png")
+        Me.BackgroundImage = Image.FromFile(Application.StartupPath & "\images\BackCard.png")
     End Sub
 
     Public Sub RendreCarteGrise()
