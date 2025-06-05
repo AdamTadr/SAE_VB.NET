@@ -132,6 +132,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="optionForm.resx">
+      <DependentUpon>optionForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Score.resx">
       <DependentUpon>Score.vb</DependentUpon>
     </EmbeddedResource>

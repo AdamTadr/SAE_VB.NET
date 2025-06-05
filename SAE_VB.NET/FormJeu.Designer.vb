@@ -24,12 +24,13 @@ Partial Class FormJeu
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LabelTpsRestant = New System.Windows.Forms.Label()
+        Me.LabelTps = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnPause = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Panel1
@@ -39,28 +40,28 @@ Partial Class FormJeu
         Me.Panel1.Size = New System.Drawing.Size(200, 100)
         Me.Panel1.TabIndex = 0
         '
-        'Label1
+        'LabelTpsRestant
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(279, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Label1"
+        Me.LabelTpsRestant.AutoSize = True
+        Me.LabelTpsRestant.Location = New System.Drawing.Point(276, 14)
+        Me.LabelTpsRestant.Name = "LabelTpsRestant"
+        Me.LabelTpsRestant.Size = New System.Drawing.Size(39, 13)
+        Me.LabelTpsRestant.TabIndex = 1
+        Me.LabelTpsRestant.Text = "Label1"
         '
-        'Label2
+        'LabelTps
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(190, 9)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "-Temps restant :"
+        Me.LabelTps.AutoSize = True
+        Me.LabelTps.Location = New System.Drawing.Point(187, 14)
+        Me.LabelTps.Name = "LabelTps"
+        Me.LabelTps.Size = New System.Drawing.Size(83, 13)
+        Me.LabelTps.TabIndex = 2
+        Me.LabelTps.Text = "-Temps restant :"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 9)
+        Me.Label3.Location = New System.Drawing.Point(12, 14)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(45, 13)
         Me.Label3.TabIndex = 3
@@ -69,7 +70,7 @@ Partial Class FormJeu
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(63, 9)
+        Me.Label4.Location = New System.Drawing.Point(63, 14)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(39, 13)
         Me.Label4.TabIndex = 4
@@ -80,23 +81,33 @@ Partial Class FormJeu
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(432, 9)
+        Me.Button1.Location = New System.Drawing.Point(439, 9)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)
         Me.Button1.TabIndex = 5
         Me.Button1.Text = "Abandon"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'BtnPause
+        '
+        Me.BtnPause.Location = New System.Drawing.Point(351, 9)
+        Me.BtnPause.Name = "BtnPause"
+        Me.BtnPause.Size = New System.Drawing.Size(75, 23)
+        Me.BtnPause.TabIndex = 6
+        Me.BtnPause.Text = "Pause"
+        Me.BtnPause.UseVisualStyleBackColor = True
+        '
         'FormJeu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(526, 450)
+        Me.Controls.Add(Me.BtnPause)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.LabelTps)
+        Me.Controls.Add(Me.LabelTpsRestant)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "FormJeu"
         Me.Text = "FormJeu"
@@ -106,10 +117,11 @@ Partial Class FormJeu
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
+    Friend WithEvents LabelTpsRestant As Label
+    Friend WithEvents LabelTps As Label
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Button1 As Button
+    Friend WithEvents BtnPause As Button
 End Class

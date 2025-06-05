@@ -37,4 +37,7 @@ Public Class Form1
         Me.Hide()
     End Sub
 
+    Private Sub BtnOpt_Click(sender As Object, e As EventArgs) Handles BtnOpt.Click
+        optionForm.Show()
+    End Sub
 End Class

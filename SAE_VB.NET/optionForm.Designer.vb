@@ -22,9 +22,108 @@ Partial Class optionForm
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        components = New System.ComponentModel.Container
+        Me.TxtNbType = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TxtNbParType = New System.Windows.Forms.TextBox()
+        Me.ButtonValider = New System.Windows.Forms.Button()
+        Me.TxtTemps = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.BtnTemps = New System.Windows.Forms.Button()
+        Me.SuspendLayout()
+        '
+        'TxtNbType
+        '
+        Me.TxtNbType.Location = New System.Drawing.Point(325, 183)
+        Me.TxtNbType.Name = "TxtNbType"
+        Me.TxtNbType.Size = New System.Drawing.Size(100, 20)
+        Me.TxtNbType.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(222, 186)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(81, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "3<=NbType<=6"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(222, 229)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(61, 13)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "NbParType"
+        '
+        'TxtNbParType
+        '
+        Me.TxtNbParType.Location = New System.Drawing.Point(325, 226)
+        Me.TxtNbParType.Name = "TxtNbParType"
+        Me.TxtNbParType.Size = New System.Drawing.Size(100, 20)
+        Me.TxtNbParType.TabIndex = 3
+        '
+        'ButtonValider
+        '
+        Me.ButtonValider.Location = New System.Drawing.Point(335, 293)
+        Me.ButtonValider.Name = "ButtonValider"
+        Me.ButtonValider.Size = New System.Drawing.Size(75, 23)
+        Me.ButtonValider.TabIndex = 4
+        Me.ButtonValider.Text = "Valider"
+        Me.ButtonValider.UseVisualStyleBackColor = True
+        '
+        'TxtTemps
+        '
+        Me.TxtTemps.Location = New System.Drawing.Point(325, 146)
+        Me.TxtTemps.Name = "TxtTemps"
+        Me.TxtTemps.Size = New System.Drawing.Size(100, 20)
+        Me.TxtTemps.TabIndex = 5
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(222, 146)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(68, 13)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Temps requit"
+        '
+        'BtnTemps
+        '
+        Me.BtnTemps.Location = New System.Drawing.Point(454, 144)
+        Me.BtnTemps.Name = "BtnTemps"
+        Me.BtnTemps.Size = New System.Drawing.Size(126, 23)
+        Me.BtnTemps.TabIndex = 7
+        Me.BtnTemps.Text = "Desactiver Temps"
+        Me.BtnTemps.UseVisualStyleBackColor = True
+        '
+        'optionForm
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.BtnTemps)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.TxtTemps)
+        Me.Controls.Add(Me.ButtonValider)
+        Me.Controls.Add(Me.TxtNbParType)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.TxtNbType)
+        Me.Name = "optionForm"
         Me.Text = "optionForm"
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
     End Sub
+
+    Friend WithEvents TxtNbType As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents TxtNbParType As TextBox
+    Friend WithEvents ButtonValider As Button
+    Friend WithEvents TxtTemps As TextBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents BtnTemps As Button
 End Class

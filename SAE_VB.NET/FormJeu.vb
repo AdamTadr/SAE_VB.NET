@@ -1,5 +1,6 @@
 ﻿Imports System.ComponentModel
 Imports System.IO
+Imports System.Runtime.InteropServices
 Imports System.Security.Authentication.ExtendedProtection
 
 Public Class FormJeu
@@ -7,20 +8,67 @@ Public Class FormJeu
     Private tableauLabels() As LabelCarte
     Private CartesTrouve() As Integer
     Private DernierType As Carte.TypeCarte = -1
-    Private tempsRestant As Integer
+    Const tempsDefaut As Integer = 61
+    Const tempsMax As Integer = 120
+    Const tempsMin As Integer = 10
+    Private tempsInf As Boolean = False
+    Private tempsRestant As Integer = tempsDefaut
     Private score As Integer = 0
+    Private enPause As Boolean = False
     Private tempsUtilise As Integer = -1
     Private Const NB_CARTES_PAR_TYPES_DEFAULT As Integer = 4
     Private Const NB_TYPE_DEFAULT As Integer = 5
     Private nbTypeCarte As Integer = NB_TYPE_DEFAULT
     Private nbCartesParType As Integer = NB_CARTES_PAR_TYPES_DEFAULT
 
+    Public Sub modifierTempsImpartis(temps As Integer)
+        If temps > tempsMin Or temps < tempsMax Then
+            tempsRestant = temps + 1
+        Else
+            MsgBox("Le temps doit être supérieur à" + tempsMin + " secondes et inférieur à" + tempsMax + "minutes. Temps inchangé", vbOKOnly + vbExclamation, "Erreur")
+        End If
+    End Sub
+
+    Public Sub arreterTempsImpartis(B As Boolean)
+        If B = True Then
+            tempsInf = True
+            LabelTpsRestant.Visible = False
+            LabelTps.Visible = False
+            tempsRestant = 1000000
+            tempsUtilise = tempsMax + 1
+            MsgBox("Temps Desactivé")
+        Else
+            tempsInf = False
+            LabelTpsRestant.Visible = True
+            LabelTps.Visible = True
+            If optionForm.TxtTemps.Text = "" Then tempsRestant = tempsDefaut Else modifierTempsImpartis(CInt(optionForm.TxtTemps.Text))
+            MsgBox("Temps Réactivé a " & tempsRestant - 1 & " secondes")
+        End If
+
+    End Sub
+
+    Public Sub modifierNbTypeCarte(nbType As Integer)
+        If nbType > 2 And nbType <= 6 Then
+            nbTypeCarte = nbType
+        Else
+            MsgBox("Le nombre de types de cartes doit être compris entre 3 et 6. Nombre de type inchangé", vbOKOnly + vbExclamation, "Erreur")
+        End If
+    End Sub
+
+    Public Sub modifierNbCartesParType(nbCartes As Integer)
+        If nbCartes > 1 And nbCartes <= 6 Then
+            nbCartesParType = nbCartes
+        Else
+            MsgBox("Le nombre de de cartes par type doit être compris entre 2 et 6. Nombre de carte inchangé", vbOKOnly + vbExclamation, "Erreur")
+        End If
+    End Sub
+
+
     Private Sub FormJeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Label4.Text = Form1.CbNomJ.Text
         Timer1.Interval = 1000
-        tempsRestant = 61
         Timer1_Tick(Timer1, e)
         Timer1.Start()
         InstancierJeuNormal()
@@ -29,8 +77,8 @@ Public Class FormJeu
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         tempsRestant -= 1
-        Label1.Text = tempsRestant.ToString()
-        If tempsRestant < 20 Then Label1.ForeColor = Color.Red
+        LabelTpsRestant.Text = tempsRestant.ToString()
+        If tempsRestant < 20 Then LabelTpsRestant.ForeColor = Color.Red
         If tempsRestant = 0 Then
             Timer1.Stop()
             MsgBox("Perdu ! Vous avez perdu !", vbOKOnly + vbCritical, "Temps écoulé")
@@ -64,8 +112,8 @@ Public Class FormJeu
     End Function
     Private Sub InstancierJeuNormal()
         Carte.instancierPaquetCarteNormale(Cartes, nbTypeCarte, nbCartesParType)
-        ReDim CartesTrouve(4)
-        ReDim tableauLabels(19)
+        ReDim CartesTrouve(nbTypeCarte - 1)
+        ReDim tableauLabels(nbCartesParType * nbTypeCarte - 1)
         Panel1.AutoSize = True
         Panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink
         Dim cpt As Integer = 0
@@ -109,7 +157,8 @@ Public Class FormJeu
 
     Private Sub FormClosing(sender As Object, e As EventArgs) Handles MyBase.FormClosing
         Timer1.Stop()
-        SauvegarderStatistiques(Label4.Text, score, tempsUtilise)
+        If Not tempsInf Then SauvegarderStatistiques(Label4.Text, score, tempsUtilise)
+        If tempsInf Then SauvegarderStatistiques(Label4.Text, score, tempsUtilise)
         Form1.ChargerNom()
         LireSave()
     End Sub
@@ -142,4 +191,22 @@ Public Class FormJeu
             Me.Close()
         End If
     End Sub
+
+    Private Sub BtnPause_Click(sender As Object, e As EventArgs) Handles BtnPause.Click
+        If enPause = False Then
+            enPause = True
+            Timer1.Stop()
+            For Each lab As LabelCarte In tableauLabels
+                lab.Enabled = False
+            Next
+        Else
+            enPause = False
+            Timer1.Start()
+            For Each lab As Label In tableauLabels
+                lab.Enabled = True
+            Next
+        End If
+    End Sub
+
+
 End Class
