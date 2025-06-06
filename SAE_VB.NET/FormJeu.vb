@@ -11,6 +11,7 @@ Public Class FormJeu
     Const tempsDefaut As Integer = 61
     Const tempsMax As Integer = 120
     Const tempsMin As Integer = 10
+    Private sauvegarde As Boolean = True
     Private tempsInf As Boolean = False
     Private tempsRestant As Integer = tempsDefaut
     Private score As Integer = 0
@@ -20,7 +21,7 @@ Public Class FormJeu
     Private Const NB_TYPE_DEFAULT As Integer = 5
     Private nbTypeCarte As Integer = NB_TYPE_DEFAULT
     Private nbCartesParType As Integer = NB_CARTES_PAR_TYPES_DEFAULT
-    Public Shared themeSelectionne As String = "Oiseaux"
+    Public Shared themeSelectionne As String = "Planete"
     Private cheatTransparency As Boolean = False
     Private cheatReveal As Boolean = False
     Private originalImages As New Dictionary(Of LabelCarte, Image)
@@ -67,8 +68,15 @@ Public Class FormJeu
     End Sub
 
     Public Sub modifierNbCartesParType(nbCartes As Integer)
+        Const NB_CARTES_NORMAL As Integer = 4
         If nbCartes > 1 And nbCartes <= 6 Then
             nbCartesParType = nbCartes
+            If nbCartes = NB_CARTES_NORMAL Then
+                sauvegarde = True
+            Else
+                MsgBox("Le nombre de cartes par type doit être " & NB_CARTES_NORMAL & " pour le mode normal. Sauvegarde Désactivé", vbOKOnly + vbExclamation, "Sauvegarde Désactivé")
+                sauvegarde = False
+            End If
         Else
             MsgBox("Le nombre de de cartes par type doit être compris entre 2 et 6. Nombre de carte inchangé", vbOKOnly + vbExclamation, "Erreur")
         End If
@@ -212,7 +220,7 @@ Public Class FormJeu
     Private Sub FormJeu_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         Form1.ChargerNom()
         Timer1.Stop()
-        SauvegarderStatistiques(Label4.Text, score, tempsUtilise + 1)
+        If sauvegarde = True Then SauvegarderStatistiques(Label4.Text, score, tempsUtilise + 1)
         LireSave()
         Form1.Show()
     End Sub
@@ -240,8 +248,15 @@ Public Class FormJeu
         End If
     End Sub
 
+    Public Sub TricheDetecte()
+        If sauvegarde = True Then
+            MsgBox("Triche activé : sauvegarde désactivé")
+            sauvegarde = False
+        End If
+    End Sub
     Private Sub FormJeu_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         ' F1 - Mode Transparence (toggle)
+        TricheDetecte()
         If e.KeyCode = Keys.F1 Then
             cheatTransparency = Not cheatTransparency
             ApplyTransparencyCheat()

@@ -21,8 +21,8 @@ Public Class optionForm
     End Sub
 
     Private Sub ButtonValider_Click(sender As Object, e As EventArgs) Handles ButtonValider.Click
-        If TxtTemps.Text <> "" Then FormJeu.modifierNbTypeCarte(CInt(TxtNbType.Text))
-        If TxtTemps.Text <> "" Then FormJeu.modifierNbCartesParType(CInt(TxtNbParType.Text))
+        If TxtNbType.Text <> "" Then FormJeu.modifierNbTypeCarte(CInt(TxtNbType.Text))
+        If TxtNbParType.Text <> "" Then FormJeu.modifierNbCartesParType(CInt(TxtNbParType.Text))
         If TxtTemps.Text <> "" Then FormJeu.modifierTempsImpartis(CInt(TxtTemps.Text))
         If CbTheme.SelectedItem IsNot Nothing Then
             FormJeu.setTheme(CbTheme.SelectedItem.ToString())
@@ -43,6 +43,5 @@ Public Class optionForm
             FormJeu.arreterTempsImpartis(tempsInf)
         End If
     End Sub
-
 
 End Class
