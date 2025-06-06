@@ -2,6 +2,11 @@
     Inherits Label
     Private Carte As Carte
 
+    Public Function getCarte() As Carte
+        Return Carte
+    End Function
+
+
     Public Function getCarteType() As Carte.TypeCarte
         Return Carte.getTypeC()
     End Function
