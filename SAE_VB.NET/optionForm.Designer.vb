@@ -32,6 +32,7 @@ Partial Class optionForm
         Me.BtnTemps = New System.Windows.Forms.Button()
         Me.CbTheme = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'TxtNbType
@@ -74,7 +75,7 @@ Partial Class optionForm
         '
         Me.ButtonValider.BackColor = System.Drawing.Color.IndianRed
         Me.ButtonValider.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.ButtonValider.Location = New System.Drawing.Point(335, 301)
+        Me.ButtonValider.Location = New System.Drawing.Point(354, 297)
         Me.ButtonValider.Name = "ButtonValider"
         Me.ButtonValider.Size = New System.Drawing.Size(75, 23)
         Me.ButtonValider.TabIndex = 4
@@ -133,12 +134,22 @@ Partial Class optionForm
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "THEME"
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(107, 95)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(224, 13)
+        Me.Label5.TabIndex = 10
+        Me.Label5.Text = "Ne rien sélectionner pour paramètres standard"
+        '
         'optionForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.PeachPuff
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.CbTheme)
         Me.Controls.Add(Me.BtnTemps)
@@ -166,4 +177,5 @@ Partial Class optionForm
     Friend WithEvents BtnTemps As Button
     Friend WithEvents CbTheme As ComboBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents Label5 As Label
 End Class

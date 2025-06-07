@@ -12,6 +12,7 @@ Public Class optionForm
 
     Private Sub Closing(sender As Object, e As EventArgs) Handles MyBase.Closing
         Form1.Show()
+        SauvegarderParam()
     End Sub
 
     Private Sub Txt_Numeric(sender As Object, e As KeyPressEventArgs) Handles TxtNbParType.KeyPress, TxtNbType.KeyPress
@@ -44,4 +45,7 @@ Public Class optionForm
         End If
     End Sub
 
+    Private Sub Label6_Click(sender As Object, e As EventArgs)
+
+    End Sub
 End Class

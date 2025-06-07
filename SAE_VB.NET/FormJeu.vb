@@ -27,6 +27,29 @@ Public Class FormJeu
     Private originalImages As New Dictionary(Of LabelCarte, Image)
     Private revealedTypes As New List(Of Integer)
 
+
+    Public Sub ChargerParametres()
+        Dim p As Param = LireParam()
+        nbTypeCarte = p.nbTypeCarte
+        nbCartesParType = p.nbCartesParType
+        tempsRestant = p.tempsImpartis
+        themeSelectionne = p.theme
+        sauvegarde = p.sauvegarde
+    End Sub
+
+    Public Function getNbTypeCarte() As Integer
+        Return nbTypeCarte
+    End Function
+
+    Public Function getNbCartesParType() As Integer
+        Return nbCartesParType
+    End Function
+    Public Function getTempsImpartis() As Integer
+        Return tempsRestant
+    End Function
+    Public Function getSauvegarde() As Boolean
+        Return sauvegarde
+    End Function
     Public Function getTheme() As String
         Return themeSelectionne
     End Function
@@ -84,6 +107,8 @@ Public Class FormJeu
 
 
     Private Sub FormJeu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ChargerParametres()
+        If nbCartesParType = NB_TYPE_DEFAULT Then sauvegarde = True
         Me.KeyPreview = True
         Me.MaximizeBox = False
         Me.MinimizeBox = False

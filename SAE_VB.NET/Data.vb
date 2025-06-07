@@ -8,6 +8,63 @@ Module Data
         Dim nbPartieJoue As Integer
     End Structure
 
+    Structure Param
+        Dim nbTypeCarte As Integer
+        Dim nbCartesParType As Integer
+        Dim tempsImpartis As Integer
+        Dim theme As String
+        Dim sauvegarde As Boolean
+    End Structure
+
+    Public Sub SauvegarderParam()
+        Dim p As Param
+        p.nbTypeCarte = FormJeu.getNbTypeCarte()
+        p.nbCartesParType = FormJeu.getNbCartesParType()
+        p.tempsImpartis = FormJeu.getTempsImpartis()
+        p.theme = FormJeu.getTheme()
+        p.sauvegarde = FormJeu.getSauvegarde()
+
+        Using fs As New FileStream("Parametres.bin", FileMode.OpenOrCreate, FileAccess.Write)
+            Using bw As New BinaryWriter(fs)
+                bw.Write(p.nbTypeCarte)
+                bw.Write(p.nbCartesParType)
+                bw.Write(p.tempsImpartis)
+                bw.Write(p.theme)
+                bw.Write(p.sauvegarde)
+            End Using
+        End Using
+    End Sub
+
+    Public Function LireParam() As Param
+        Const tempsDefaut As Integer = 61
+        Const nbTypeCarteDefaut As Integer = 5
+        Const nbCartesParTypeDefaut As Integer = 4
+        Const themeDefaut As String = "Planete"
+        Const sauvegardeDefaut As Boolean = True
+        Dim p As New Param()
+
+        If Not File.Exists("Parametres.bin") Then
+            p.nbTypeCarte = nbTypeCarteDefaut
+            p.nbCartesParType = nbCartesParTypeDefaut
+            p.tempsImpartis = tempsDefaut
+            p.theme = themeDefaut
+            p.sauvegarde = sauvegardeDefaut
+            Return p
+        End If
+
+        Using fs As New FileStream("Parametres.bin", FileMode.Open, FileAccess.Read)
+            Using br As New BinaryReader(fs)
+                p.nbTypeCarte = br.ReadInt32()
+                p.nbCartesParType = br.ReadInt32()
+                p.tempsImpartis = br.ReadInt32()
+                p.theme = br.ReadString()
+                p.sauvegarde = br.ReadBoolean()
+            End Using
+        End Using
+
+        Return p
+    End Function
+
     Private Statistiques As New Dictionary(Of String, Stats)
 
     Public Sub SupprimerStats()
